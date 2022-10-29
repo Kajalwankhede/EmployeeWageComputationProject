@@ -11,7 +11,6 @@ public class EmployeeWageComputation {
         } else {
             System.out.println("Employee Absent!");
 
-
         }
     }
 }
