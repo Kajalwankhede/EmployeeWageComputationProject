@@ -11,12 +11,8 @@ public class EmpWageBuilderArray implements ComputeEmpWage {
     static final int isFullTime = 2;
     private int numOfCompany = 0;
     private List<CompanyEmpWage> companyEmpWageList;
-    private Map<String, CompanyEmpWage> companyToEmpWageMap;
-
-
     public EmpWageBuilderArray() {
         companyEmpWageList = new LinkedList<>();
-        companyToEmpWageMap = new HashMap<>();
 
     }
 
@@ -24,7 +20,6 @@ public class EmpWageBuilderArray implements ComputeEmpWage {
     public void addCompanyEmpWage(String companyName, int empRatePerHour, int numWorkingDays, int maxHoursPerMonth) {
         CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, empRatePerHour, numWorkingDays, maxHoursPerMonth);
         companyEmpWageList.add(companyEmpWage);
-        companyToEmpWageMap.put(companyName, companyEmpWage);
 
     }
 
@@ -39,7 +34,7 @@ public class EmpWageBuilderArray implements ComputeEmpWage {
 
     @Override
     public int getTotalWage(String companyName) {
-     
+
         return companyToEmpWageMap.get(companyName).totalWage;
 
 
