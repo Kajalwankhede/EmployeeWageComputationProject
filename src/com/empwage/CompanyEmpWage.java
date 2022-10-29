@@ -1,12 +1,18 @@
 package com.empwage;
 
+interface  ComputeEmpWage{
+    public void addCompanyEmpWage(String companyName, int empRatePerHour, int numWorkingDays, int maxHoursPerMonth);
+    public void computeEmpWage();
+    public int getTotalWage(String companyName);
+
+}
 public class CompanyEmpWage {
     final int empRatePerHour;
     private final String companyName;
     final int numWorkingDays;
 
     final int maxHoursPerMonth;
-    private int totalWage;
+    int totalWage;
 
     public CompanyEmpWage(String companyName, int empRatePerHour, int numWorkingDays, int maxHoursPerMonth) {
 
@@ -18,6 +24,7 @@ public class CompanyEmpWage {
     }
 
     public void setTotalWage(int totalWage){
+
         this.totalWage=totalWage;
     }
     @Override
