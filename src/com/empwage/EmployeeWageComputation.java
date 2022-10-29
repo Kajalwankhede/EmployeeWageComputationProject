@@ -2,10 +2,19 @@ package com.empwage;
 public class EmployeeWageComputation {
     static final int fullTime = 1;
     static final int partTime=2;
-    static final int empRatePerHour=20;
-    static final int numOfWorkingDays=2;
-    static final int maxHourMonth=10;
-    public static int computeEmpWage(String companyName,int empRatePerHour,int numOfWorkingDays,int maxHourMonth){
+    private  final String companyName;
+    private  final int empRatePerHour;
+    private  final int numOfWorkingDays;
+    private  final int maxHourMonth;
+    private int totalEmpWage;
+   public EmployeeWageComputation(String companyName,int empRatePerHour,int numOfWorkingDays,int maxHourMonth) {
+   this.companyName=companyName;
+   this.empRatePerHour=empRatePerHour;
+   this.numOfWorkingDays=numOfWorkingDays;
+   this.maxHourMonth=maxHourMonth;
+
+   }
+   public void  computeEmpWage(){
         int empHour = 0;
         int totalEmpHour = 0;
         int totalWorkingDays = 0;
@@ -28,15 +37,21 @@ public class EmployeeWageComputation {
                     System.out.println("Total Working Days: " + totalWorkingDays + " Employee Hours: " + empHour);
 
                 }
-                 int totalEmpWage = totalEmpHour * empRatePerHour;
-                System.out.println("Total Employee Wage for company  "+companyName+" is " + totalEmpWage);
-                return  totalEmpWage;
+                 totalEmpWage = totalEmpHour * empRatePerHour;
+
+            }
+            @Override
+            public  String toString(){
+                return  "Total Employee Wage For Each Company: "+companyName+ " is "+totalEmpWage;
             }
     public static void main(String[] args) {
         System.out.println("\n******** Welcome To Employee Wage Computation ********");
-        computeEmpWage("Wipro",20,2,10);
-        computeEmpWage("RelienceJio",10,2,10);
-        computeEmpWage("Wipro",30,2,10);
+        EmployeeWageComputation Wipro=new EmployeeWageComputation("Wipro",20,2,10);
+        EmployeeWageComputation RelienceJio=new EmployeeWageComputation("RelienceJio",30,4,10);
+        Wipro.computeEmpWage();
+        System.out.println(Wipro);
+        RelienceJio.computeEmpWage();
+        System.out.println(RelienceJio);
     }
 }
 
