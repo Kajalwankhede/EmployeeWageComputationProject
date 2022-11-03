@@ -1,5 +1,8 @@
 package com.empwage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 interface  ComputeEmpWage{
     public void addCompanyEmpWage(String companyName, int empRatePerHour, int numWorkingDays, int maxHoursPerMonth);
     public void computeEmpWage();
@@ -13,6 +16,7 @@ public class CompanyEmpWage {
 
     final int maxHoursPerMonth;
     int totalWage;
+    public static Map<Integer,Integer>dailyWage=new HashMap<>();
 
     public CompanyEmpWage(String companyName, int empRatePerHour, int numWorkingDays, int maxHoursPerMonth) {
 

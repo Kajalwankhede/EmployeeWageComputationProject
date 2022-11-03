@@ -17,7 +17,6 @@ public class EmpWageBuilderArray implements ComputeEmpWage {
     public EmpWageBuilderArray() {
         companyEmpWageList = new LinkedList<>();
         companyToEmpWageMap = new HashMap<>();
-
     }
 
 

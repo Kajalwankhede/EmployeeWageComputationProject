@@ -1,7 +1,11 @@
 package com.empwage;
+import java.util.HashMap;
+import java.util.Map;
+
 public class EmployeeWageComputation {
     static final int fullTime = 1;
     static final int partTime=2;
+    Map<Integer,Long> totalWageRecord;
     private  final String companyName;
     private  final int empRatePerHour;
     private  final int numOfWorkingDays;
@@ -12,6 +16,7 @@ public class EmployeeWageComputation {
    this.empRatePerHour=empRatePerHour;
    this.numOfWorkingDays=numOfWorkingDays;
    this.maxHourMonth=maxHourMonth;
+
 
    }
    public void  computeEmpWage(){
@@ -34,10 +39,11 @@ public class EmployeeWageComputation {
                         empHour =0;
                     }
                     totalEmpHour += empHour;
-                    System.out.println("Total Working Days: " + totalWorkingDays + " Employee Hours: " + empHour);
-
+            System.out.println("Total Working Days: " + totalWorkingDays + " Employee Hours: " + empHour);
+                CompanyEmpWage.dailyWage.put(totalWorkingDays,totalEmpWage);
+                System.out.println(CompanyEmpWage.dailyWage);
                 }
-                 totalEmpWage = totalEmpHour * empRatePerHour;
+                totalEmpWage = totalEmpHour * empRatePerHour;
 
             }
             @Override
@@ -52,6 +58,7 @@ public class EmployeeWageComputation {
         System.out.println(Wipro);
         RelienceJio.computeEmpWage();
         System.out.println(RelienceJio);
+
     }
 }
 
